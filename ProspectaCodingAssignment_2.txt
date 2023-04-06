@@ -1,0 +1,45 @@
+Suppose you have a CSV file with the data below.
+
+A1: 5, A2: 7, A3: 9, B1: 3, B2: 8, B3: =4+5, C1: =5+A1, C2: =A2+B2, C3: =C2+B3
+
+This can be represented in an Excel sheet below:
+
+A B C
+
+1 5 3 =5+A1
+
+2 7 8 =A2+B2
+
+3 9 =4+5 =C2+B3
+
+I want a program that will take the CSV input above and produce CSV output with the results. If it is a value, then return a value. If it is a formula then calculate the formula and return the value of that formula.
+
+1. How will you tackle the challenge above?
+
+Ans:
+
+a. At first we will take the input of data using scanner class or buffer reader.
+
+b. Then we will split data using comma (,) and make it into an array.
+
+c. Then we will create HashMap and put field name as Key and formula or value as Data.
+
+d. Then we can simplify HashMap values by parsing it into integer if it is value or fething field value if it is formula.
+
+e. After this, we can convert the map into a CSV file.
+
+2. What type of errors you would you check for?
+
+Ans :
+
+a. We may encounter Circular dependency if 2 fields are dependent on each other.
+
+b. We may get a Null pointer exception if the value is not present on the value in the hashmap.
+
+3. How might a user break your code?
+
+Ans :
+
+a. One way is having multiple circular dependency.
+
+b. Inputing any invalid character.
